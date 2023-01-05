@@ -5,7 +5,6 @@ const Input: React.FC = () => {
 
     return(
         <div>
-            
             <input placeholder="image description" value={inputValue} onChange={({target})=>{setInputValue(target.value)}}></input>
         </div> 
         )
