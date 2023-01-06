@@ -11,7 +11,7 @@ const openai = new OpenAIApi(configuration);
 //
 
 const Input = ({setImageURL} : {setImageURL: React.Dispatch<React.SetStateAction<string | undefined>>}) => {
-    const inputValueRef = useRef<HTMLInputElement>(null);
+    const inputValueRef = useRef<HTMLTextAreaElement>(null);
 
     //
     //
@@ -37,11 +37,13 @@ const Input = ({setImageURL} : {setImageURL: React.Dispatch<React.SetStateAction
 
     return(
             <div className="input">
-                <label htmlFor="input-text">Image Description</label>
-                <input type='text' id='input-text' placeholder="image description" ref={inputValueRef}></input>
-                <button onClick={onClickHandler}>
-                    Generate image
-                </button>
+                <label htmlFor="input-text"></label>
+                <textarea id='input-text' placeholder="image description" ref={inputValueRef}></textarea>
+                <div>
+                    <button className="button" onClick={onClickHandler}>
+                        Generate image
+                    </button>
+                </div>
             </div> 
         )
 }

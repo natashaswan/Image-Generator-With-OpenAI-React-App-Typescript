@@ -11,9 +11,13 @@ function App() {
 
   return (
     <div className="App">
-      <Header>Type in the box below to generate an image of that!</Header>
-      <Input setImageURL={setImageURL}/>
+      <Header>
+        <div className='header'>
+          <div>YouArtist</div>
+        </div>
+      </Header>
       <Image url={imageURL}/>
+      <Input setImageURL={setImageURL}/>
     </div>
   );
 }
