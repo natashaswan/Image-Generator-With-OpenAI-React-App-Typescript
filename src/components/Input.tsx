@@ -1,12 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
+
+import Button from './Button';
 
 const Input: React.FC = () => {
-    const [inputValue, setInputValue] = useState<string | undefined>(undefined);
+    const inputValueRef = useRef<HTMLInputElement>(null);
 
     return(
-        <div>
-            <input placeholder="image description" value={inputValue} onChange={({target})=>{setInputValue(target.value)}}></input>
-        </div> 
+            <div className="input">
+                <label htmlFor="input-text">Image Description</label>
+                <input type='text' id='input-text' placeholder="image description" ref={inputValueRef}></input>
+                <Button inputValue={inputValueRef}/>
+            </div> 
         )
 }
 

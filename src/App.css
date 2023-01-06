@@ -1,4 +1,17 @@
 .App {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  
   text-align: center;
+}
+
+.input {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  
+  justify-content: center;
+  align-items: center;
 }
 
