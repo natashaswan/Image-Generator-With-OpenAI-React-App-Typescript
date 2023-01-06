@@ -9,7 +9,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <Header/>
+      <Header> Type in the box below to generate an image of that!</Header>
       <Input/>
       <Image />
     </div>

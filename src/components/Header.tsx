@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 
-const Header: React.FC = () => {
+const Header= ({children}:{children: React.ReactNode}) => {
     return(
-       <>
-       Welcome to a place where we will generate an image based on your description!
-       </>
-        )
+        <>
+            {children}
+        </>
+    )
 }
 
 export default Header;

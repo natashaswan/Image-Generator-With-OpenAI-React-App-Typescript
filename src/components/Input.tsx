@@ -7,7 +7,7 @@ const Input: React.FC = () => {
 
     return(
             <div className="input">
-                <label htmlFor="input-text">Image Description</label>
+                <label htmlFor="input-text"></label>
                 <input type='text' id='input-text' placeholder="image description" ref={inputValueRef}></input>
                 <Button inputValue={inputValueRef}/>
             </div> 

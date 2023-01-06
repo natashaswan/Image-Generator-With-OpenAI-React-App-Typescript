@@ -4,7 +4,7 @@ interface IMyProps {
     inputValue: {
         current: {
             value: string 
-        }| null
+        } | null
       }
 }
 
