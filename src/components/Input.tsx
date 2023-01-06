@@ -12,7 +12,7 @@ const Input: React.FC = () => {
     const [imageURL, setImageURL] = useState<string | undefined >(undefined);
 
     //
-    //s
+    //
     //
 
     const inputValueRef = useRef<HTMLInputElement>(null);
