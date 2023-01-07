@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { Configuration, OpenAIApi } from "openai";
 
 const configuration = new Configuration({
@@ -10,7 +10,7 @@ const openai = new OpenAIApi(configuration);
 //
 //
 
-const Input = ({setImageURL} : {setImageURL: React.Dispatch<React.SetStateAction<string | undefined>>}) => {
+const Input = ({setImageURL, setFetching, setError} : {setImageURL: React.Dispatch<React.SetStateAction<string | undefined>>, setFetching: React.Dispatch<React.SetStateAction<undefined | boolean>>, setError: React.Dispatch<React.SetStateAction<boolean>>}) => {
     const inputValueRef = useRef<HTMLTextAreaElement>(null);
 
     //
@@ -22,13 +22,19 @@ const Input = ({setImageURL} : {setImageURL: React.Dispatch<React.SetStateAction
         //
         const generateImage = async () =>{
             if(enteredText){
+                setFetching(true);
                 const imageParameters: {prompt: string} = {
                     prompt: enteredText,
                 }
                 const response = await openai.createImage(imageParameters);
-                console.log(response);
-                const urlData: string | undefined = response.data.data[0].url;
-                setImageURL(urlData);
+                if(response){
+                    setFetching(false);
+                    const urlData: string | undefined = response.data.data[0].url;
+                    setImageURL(urlData);
+                }
+                else{
+                    setError(true)
+                }
             }
 
         }

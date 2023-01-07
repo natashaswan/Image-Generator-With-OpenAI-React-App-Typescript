@@ -8,6 +8,8 @@ import './App.css';
 
 function App() {
   const [imageURL, setImageURL] = useState<string | undefined >(undefined);
+  const [fetching, setFetching] = useState<boolean | undefined>(undefined);
+  const [error, setError] = useState(false)
 
   return (
     <div className="App">
@@ -16,8 +18,8 @@ function App() {
           <div>YouArtist</div>
         </div>
       </Header>
-      <Image url={imageURL}/>
-      <Input setImageURL={setImageURL}/>
+       <Image url={imageURL} fetching={fetching}/>
+      <Input setImageURL={setImageURL} setFetching={setFetching} setError={setError}/>
     </div>
   );
 }
