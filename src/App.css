@@ -1,0 +1,77 @@
+.App {
+  display: flex;
+
+  flex-direction: column;
+  gap: 20px;
+  height: 100vh;
+  
+  text-align: center;
+
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+
+  background-color: rgb(234, 234, 234);
+}
+
+.input {
+  margin-bottom: 50px;
+}
+.input textarea{
+  padding: 0 10px;
+  font-size: 16px;
+
+  width: 512px;
+  height: 50px;
+
+  border: 1px solid grey;
+  border-radius: 8px;
+}
+.header{
+  display: flex;
+  align-items: flex-start;
+  padding: 20px;
+  background-color: rgb(229, 212, 30);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+.image{
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid grey;
+  border-radius: 8px;
+
+  margin: 10px;
+  height: 512px;
+  width: 512px;
+
+  background-color: white;
+
+  align-self: center;
+  justify-self: center;
+}
+.image svg{
+  width: 100px;
+  height: 100px;
+}
+
+.button{
+  background-color: rgb(208, 135, 230);
+  width: 150px;
+  height: 30px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+@media only screen and (width < 520px) {
+  .image{
+    height: 95%;
+    width: 95%;
+  }
+  .input textarea{
+    width: 90%;
+  }
+}
+
