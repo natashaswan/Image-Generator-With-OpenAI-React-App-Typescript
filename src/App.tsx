@@ -18,7 +18,7 @@ function App() {
           <div>YouArtist</div>
         </div>
       </Header>
-       <Image url={imageURL} fetching={fetching}/>
+      <Image url={imageURL} fetching={fetching} error={error}/>
       <Input setImageURL={setImageURL} setFetching={setFetching} setError={setError}/>
     </div>
   );

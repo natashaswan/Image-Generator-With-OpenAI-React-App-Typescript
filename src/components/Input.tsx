@@ -26,15 +26,15 @@ const Input = ({setImageURL, setFetching, setError} : {setImageURL: React.Dispat
                 const imageParameters: {prompt: string} = {
                     prompt: enteredText,
                 }
-                const response = await openai.createImage(imageParameters);
-                if(response){
-                    setFetching(false);
-                    const urlData: string | undefined = response.data.data[0].url;
-                    setImageURL(urlData);
-                }
-                else{
-                    setError(true)
-                }
+                openai.createImage(imageParameters).then(
+                    response=>{                
+                        setFetching(false);
+                        const urlData: string | undefined = response.data.data[0].url;
+                        setImageURL(urlData);
+                    }, 
+                    error=>{
+                        setFetching(false);
+                        setError(true)});
             }
 
         }
