@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.8befc7ea.css",
-    "main.js": "/static/js/main.130f75d5.js",
-    "static/js/787.28cb0dcd.chunk.js": "/static/js/787.28cb0dcd.chunk.js",
-    "static/media/image-solid.svg": "/static/media/image-solid.106ec38ae014749702d035bc4d3af409.svg",
-    "index.html": "/index.html",
-    "main.8befc7ea.css.map": "/static/css/main.8befc7ea.css.map",
-    "main.130f75d5.js.map": "/static/js/main.130f75d5.js.map",
-    "787.28cb0dcd.chunk.js.map": "/static/js/787.28cb0dcd.chunk.js.map"
+    "main.css": "/Image-Generator-With-OpenAI-React-App-Typescript/static/css/main.8befc7ea.css",
+    "main.js": "/Image-Generator-With-OpenAI-React-App-Typescript/static/js/main.705dd7c7.js",
+    "static/js/787.28cb0dcd.chunk.js": "/Image-Generator-With-OpenAI-React-App-Typescript/static/js/787.28cb0dcd.chunk.js",
+    "index.html": "/Image-Generator-With-OpenAI-React-App-Typescript/index.html",
+    "static/media/image-solid.svg": "/Image-Generator-With-OpenAI-React-App-Typescript/static/media/image-solid.106ec38ae014749702d035bc4d3af409.svg",
+    "main.8befc7ea.css.map": "/Image-Generator-With-OpenAI-React-App-Typescript/static/css/main.8befc7ea.css.map",
+    "main.705dd7c7.js.map": "/Image-Generator-With-OpenAI-React-App-Typescript/static/js/main.705dd7c7.js.map",
+    "787.28cb0dcd.chunk.js.map": "/Image-Generator-With-OpenAI-React-App-Typescript/static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.8befc7ea.css",
-    "static/js/main.130f75d5.js"
+    "static/js/main.705dd7c7.js"
   ]
 }
