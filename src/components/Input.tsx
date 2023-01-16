@@ -64,7 +64,7 @@ const Input = ({setImageURL, setFetching, setError} : {setImageURL: React.Dispat
 
     return(
             <div className="input">
-                <label htmlFor="input-text"></label>
+                <label htmlFor="input-text">Image description, e.g. a close up, studio photographic portrait of a white siamese cat that looks curious</label>
                 <textarea id='input-text' placeholder="image description" ref={textValueRef}></textarea>
                 <label htmlFor="input-number">Number of images to generate:</label>
                 <select id='input-number' ref={numValueRef}>
