@@ -1,9 +1,17 @@
 .App {
   display: flex;
+  position: fixed;
+  
+  overflow-y: scroll; 
+  top: 0;
+  left: 0;
+  right: 0;
 
   flex-direction: column;
   gap: 20px;
-  height: 100vh;
+  height: 100%;
+  width: 100%;
+
   
   text-align: center;
 
@@ -11,6 +19,7 @@
   border-top-right-radius: 8px;
 
   background-color: rgb(234, 234, 234);
+  background-size: cover;
 }
 
 .App h2 {
@@ -37,15 +46,17 @@
 }
 .image{
   display: flex;
+  flex-direction: column;
+
+  width: 512px;
+  height: auto;
+
+  border: 1px solid grey;
 
   align-items: center;
   justify-content: center;
 
-  border: 1px solid grey;
   border-radius: 8px;
-
-  height: 512px;
-  width: 512px;
 
   background-color: white;
 
@@ -53,8 +64,9 @@
   justify-self: center;
 }
 .image svg{
-  width: 100px;
-  height: 100px;
+  width: 50px;
+  height: 50px;
+  margin: 50px;
 }
 
 .button{

@@ -6,11 +6,17 @@ const configuration = new Configuration({
     });
 const openai = new OpenAIApi(configuration);
 
+interface RequestParams{
+    prompt: string;
+    n: number;
+    size: "512x512";  
+}
+
 //
 //
 //
 
-const Input = ({setImageURL, setFetching, setError} : {setImageURL: React.Dispatch<React.SetStateAction<string | undefined>>, setFetching: React.Dispatch<React.SetStateAction<undefined | boolean>>, setError: React.Dispatch<React.SetStateAction<boolean>>}) => {
+const Input = ({setImageURL, setFetching, setError} : {setImageURL: React.Dispatch<React.SetStateAction<string | (string | undefined)[] | undefined>>, setFetching: React.Dispatch<React.SetStateAction<undefined | boolean>>, setError: React.Dispatch<React.SetStateAction<boolean>>}) => {
     const inputValueRef = useRef<HTMLTextAreaElement>(null);
 
     //
@@ -23,16 +29,30 @@ const Input = ({setImageURL, setFetching, setError} : {setImageURL: React.Dispat
         const generateImage = async () =>{
             if(enteredText){
                 setFetching(true);
-                const imageParameters: {prompt: string} = {
+                const imageParameters: RequestParams = {
                     prompt: enteredText,
+                    n: 1,
+                    size: "512x512",
                 }
                 openai.createImage(imageParameters).then(
-                    response=>{                
-                        setFetching(false);
-                        const urlData: string | undefined = response.data.data[0].url;
-                        setImageURL(urlData);
+                    response=>{
+                        console.log(response);
+                        if(response.data.data){
+                            setFetching(false);
+                            let urlData: string | (string | undefined)[] | undefined;
+                            if(response.data.data.length > 1){
+                                urlData =  response.data.data.map(({url})=>{return url});
+                            }
+                            else{
+                                urlData =  response.data.data[0].url
+                            
+                            }
+                            
+                            setImageURL(urlData);
+                        }        
                     }, 
                     error=>{
+                        console.log(error);
                         setFetching(false);
                         setError(true)});
             }

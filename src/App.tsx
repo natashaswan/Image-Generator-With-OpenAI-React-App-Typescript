@@ -7,7 +7,7 @@ import Image from './components/Image';
 import './App.css';
 
 function App() {
-  const [imageURL, setImageURL] = useState<string | undefined >(undefined);
+  const [imageURL, setImageURL] = useState<string | (string | undefined)[] | undefined >(undefined);
   const [fetching, setFetching] = useState<boolean | undefined>(undefined);
   const [error, setError] = useState(false)
 
