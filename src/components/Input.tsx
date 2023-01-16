@@ -17,26 +17,27 @@ interface RequestParams{
 //
 
 const Input = ({setImageURL, setFetching, setError} : {setImageURL: React.Dispatch<React.SetStateAction<string | (string | undefined)[] | undefined>>, setFetching: React.Dispatch<React.SetStateAction<undefined | boolean>>, setError: React.Dispatch<React.SetStateAction<boolean>>}) => {
-    const inputValueRef = useRef<HTMLTextAreaElement>(null);
+    const textValueRef = useRef<HTMLTextAreaElement>(null);
+    const numValueRef = useRef<HTMLSelectElement>(null);
 
     //
     //
     //
 
     const onClickHandler = () => {
-        const enteredText: string | undefined = inputValueRef?.current?.value;
+        const enteredText: string | undefined = textValueRef?.current?.value;
+        const enteredNum: string | undefined = numValueRef?.current?.value;
         //
         const generateImage = async () =>{
             if(enteredText){
                 setFetching(true);
                 const imageParameters: RequestParams = {
                     prompt: enteredText,
-                    n: 1,
+                    n: parseInt(enteredNum || '1'),
                     size: "512x512",
                 }
                 openai.createImage(imageParameters).then(
                     response=>{
-                        console.log(response);
                         if(response.data.data){
                             setFetching(false);
                             let urlData: string | (string | undefined)[] | undefined;
@@ -64,7 +65,14 @@ const Input = ({setImageURL, setFetching, setError} : {setImageURL: React.Dispat
     return(
             <div className="input">
                 <label htmlFor="input-text"></label>
-                <textarea id='input-text' placeholder="image description" ref={inputValueRef}></textarea>
+                <textarea id='input-text' placeholder="image description" ref={textValueRef}></textarea>
+                <label htmlFor="input-number">Number of images to generate:</label>
+                <select id='input-number' ref={numValueRef}>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
                 <div>
                     <button className="button" onClick={onClickHandler}>
                         Generate image
